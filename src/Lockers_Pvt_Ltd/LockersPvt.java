@@ -77,7 +77,8 @@ public class LockersPvt {
 				fm.deleteFile(subOption);
 				
 			} else if ("2.3".equals(subOption)) {
-				System.out.println("Search file logic here..");
+				fm.searchFile(subOption);
+				//System.out.println("Search file logic here..");
 			} else if ("2.4".equals(subOption)) {
 				System.out.println("=======================================");
 				System.out.println("||           Main Menu               ||");

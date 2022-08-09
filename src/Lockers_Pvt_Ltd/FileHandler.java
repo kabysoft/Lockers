@@ -43,7 +43,7 @@ import java.util.Scanner;
 			    if (myObj.delete()) { 
 			      System.out.println("Deleted  file: " + myObj.getName()+ " Successful Operation");
 			    } else {
-			      System.out.println("Failed to delete the file, Respect upper and lower case letters, Or File Not exist");
+			      System.out.println("Failed to delete the file, Respect upper and lower case letters, Or File Not exist.");
 			    } 
 		}
 
@@ -83,6 +83,35 @@ import java.util.Scanner;
 
 		@Override
 		public boolean searchFile(String fileName) {
+			File directory = new File("C:\\Users\\Owner\\eclipse-workspace\\Lockers\\MainFolder");
+			  
+	        // Create an object of Class MyFilenameFilter
+	        // Constructor with name of file which is being
+	        // searched
+	        MyFilenameFilter filter
+	            = new MyFilenameFilter("Grosserie.txt");
+	  
+	        // store all names with same name 
+	        // with/without extension
+	        String[] flist = directory.list(filter);
+	  
+	        // Empty array
+	        if (flist == null) {
+	            System.out.println(
+	                "Empty directory or directory does not exists.");
+	        }
+	        else {
+	  
+	            // Print all files with same name in directory
+	            // as provided in object of MyFilenameFilter
+	            // class
+	            for (int i = 0; i < flist.length; i++) {
+	                System.out.println(flist[i]+" found");
+	            }
+	        }
+	    
+	
+
 
 			return false;
 		}
