@@ -83,13 +83,15 @@ import java.util.Scanner;
 
 		@Override
 		public boolean searchFile(String fileName) {
-			File directory = new File("C:\\Users\\Owner\\eclipse-workspace\\Lockers\\MainFolder");
+			Scanner sc = new Scanner(System.in);
+			String subOption = sc.next();
+			File directory = new File("./MainFolder1/");
 			  
 	        // Create an object of Class MyFilenameFilter
 	        // Constructor with name of file which is being
 	        // searched
 	        MyFilenameFilter filter
-	            = new MyFilenameFilter("Grosserie.txt");
+	            = new MyFilenameFilter(subOption);
 	  
 	        // store all names with same name 
 	        // with/without extension
@@ -116,5 +118,10 @@ import java.util.Scanner;
 			return false;
 		}
 
-	}
+		@Override
+		public void main(String[] args) {
+			// TODO Auto-generated method stub
+			
+		}
 
+	}

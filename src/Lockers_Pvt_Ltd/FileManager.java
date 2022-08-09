@@ -7,4 +7,5 @@ public interface FileManager {
 void addFile(String fileName);
 void deleteFile(String fileName);
 boolean searchFile(String fileName);
+void main(String[] args);
 }

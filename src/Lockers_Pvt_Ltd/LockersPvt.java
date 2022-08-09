@@ -72,13 +72,12 @@ public class LockersPvt {
 				fm.addFile(subOption);
 					
 				
-				
+				System.out.println("Add file logic here");
 			} else if ("2.2".equals(subOption)) {
-				fm.deleteFile(subOption);
-				
+				System.out.println("Delete file logic here..");
 			} else if ("2.3".equals(subOption)) {
 				fm.searchFile(subOption);
-				//System.out.println("Search file logic here..");
+				System.out.println("Search file logic here..");
 			} else if ("2.4".equals(subOption)) {
 				System.out.println("=======================================");
 				System.out.println("||           Main Menu               ||");
