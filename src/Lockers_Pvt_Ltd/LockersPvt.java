@@ -1,6 +1,7 @@
 package Lockers_Pvt_Ltd;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class LockersPvt {
@@ -28,9 +29,14 @@ public class LockersPvt {
 
 			case 1:
 				// logic to invoke for list files
-				//List<String> fileNames = fm.listFiles();
-				// Print FileNames
-				System.out.println("List file logic here...");
+				
+				List<String> fileNames = fm.listFiles();
+				//Print FileNames
+				
+				
+				System.out.println("=======================================");
+				System.out.println("Navigation Menue Below To Continue");
+				System.out.println("=======================================");
 				break;
 
 			case 2:
