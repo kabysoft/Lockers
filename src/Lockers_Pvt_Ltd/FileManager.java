@@ -1,6 +1,5 @@
 package Lockers_Pvt_Ltd;
 
-
 //import java.util.List;
 
 public interface FileManager {

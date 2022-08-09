@@ -1,27 +1,22 @@
 package Lockers_Pvt_Ltd;
 
-
-
-	import java.io.File;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-	/**
-	 * File Handler logic implementation goes here Please complete these methods.
-	 * 
-	 * 
-	 */
+	
 	public class FileHandler implements FileManager {
 
-		@Override
+		
 		public void addFile(String fileName) {
 			Scanner sc = new Scanner(System.in);
 			String subOption = sc.next();
+			String subOption1 = new String (subOption.toLowerCase());
 
 			try {
 			
-				File myObj = new File("./MainFolder",subOption);
+				File myObj = new File("./MainFolder",subOption1);
 			      if (myObj.createNewFile()) {
 			        System.out.println("File created: " + myObj.getName());
 			      } else {
@@ -34,11 +29,12 @@ import java.util.Scanner;
 
 		}
 
-		@Override
+	
 		public void deleteFile(String fileName) {
 			Scanner sc = new Scanner(System.in);
 			String subOption = sc.next();
-			File myObj = new File("./MainFolder",subOption); 
+			String subOption1 = new String (subOption.toLowerCase());
+			File myObj = new File("./MainFolder",subOption1); 
 				
 			    if (myObj.delete()) { 
 			      System.out.println("Deleted  file: " + myObj.getName()+ " Successful Operation");
@@ -81,47 +77,58 @@ import java.util.Scanner;
 			return null;
 		}
 
-		@Override
+	
 		public boolean searchFile(String fileName) {
 			Scanner sc = new Scanner(System.in);
 			String subOption = sc.next();
-			File directory = new File("./MainFolder1/");
-			  
+			String subOption1 = new String (subOption.toLowerCase());
+			File directory = new File("./MainFolder/");
+			 File files = new File(subOption1);
 	        // Create an object of Class MyFilenameFilter
 	        // Constructor with name of file which is being
 	        // searched
 	        MyFilenameFilter filter
-	            = new MyFilenameFilter(subOption);
+	            = new MyFilenameFilter(subOption1);
 	  
 	        // store all names with same name 
 	        // with/without extension
 	        String[] flist = directory.list(filter);
-	  
+	        String[] filList = files.list(filter);
 	        // Empty array
-	        if (flist == null) {
-	            System.out.println(
-	                "Empty directory or directory does not exists.");
+	        int flag =0;
+	        if (flist == null ) {
+	            System.out.println("Empty directory OR File or directory(File) does not exists.");
 	        }
 	        else {
 	  
-	            // Print all files with same name in directory
+	            // Print all files with same name in directory2
+	        	
+	        	
 	            // as provided in object of MyFilenameFilter
 	            // class
 	            for (int i = 0; i < flist.length; i++) {
-	                System.out.println(flist[i]+" found");
+	            	String filename =flist[i];
+	            	if (filename.equalsIgnoreCase(subOption1)) {
+	                    System.out.println(filename + " found");
+	                    flag = 1;
+	               
 	            }
+	            
+	            	
+	            }
+	            }
+	        if (flag == 0) {
+	            System.out.println("File Not Found");
 	        }
-	    
-	
-
-
+			
 			return false;
 		}
 
-		@Override
+
 		public void main(String[] args) {
 			// TODO Auto-generated method stub
 			
 		}
+
 
 	}

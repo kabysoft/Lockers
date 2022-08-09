@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
+
 public class LockersPvt {
 	static FileHandler fm = new FileHandler();
 	public static void main(String[] args) throws SecurityException, IOException {
@@ -24,18 +26,16 @@ public class LockersPvt {
 			String mainMenuOptons = mainMenuOptions();
 			System.out.println(mainMenuOptons);
 			int mainSelection = new Scanner(System.in).nextInt();
-
+			try {
 			switch (mainSelection) {
 
 			case 1:
 				// logic to invoke for list files
 				
 				List<String> fileNames = fm.listFiles();
-				//Print FileNames
-				
-				
+			
 				System.out.println("=======================================");
-				System.out.println("Navigation Menue Below To Continue");
+				System.out.println("Navigation Main Menu Below To Continue");
 				System.out.println("=======================================");
 				break;
 
@@ -46,19 +46,25 @@ public class LockersPvt {
 
 			case 3:
 				// Break program and close application
+				System.out.println("=======================================");
+				System.out.println("||   APPLICATION  CLOSED BY USER      ||");
+				System.out.println("=======================================");
 				System.exit(0);
 				break;
 
 			default:
 				System.out.println("Please select one of valid option");
-				System.exit(0);
+				//System.exit(0);
 
 			}
-
+			}
+			catch(Exception e) {
+		         // if any error occurs
+		         e.printStackTrace();
+			}
 		}
-
-	}
-
+			}
+	
 	private static void executeDetailedOptions(FileHandler fm) throws SecurityException, IOException {
 		FileHandler add = new  FileHandler();
 		while (true) {
@@ -69,20 +75,23 @@ public class LockersPvt {
 			String subOption = sc.next();
 
 			if ("2.1".equals(subOption)) {
+				System.out.println("Input File Name to Add");
 				fm.addFile(subOption);
-					
-				
-				System.out.println("Add file logic here");
+							
 			} else if ("2.2".equals(subOption)) {
-				System.out.println("Delete file logic here..");
+				System.out.println("Input File To Delete");
+				fm.deleteFile(subOption);
+				
 			} else if ("2.3".equals(subOption)) {
+				System.out.println("Input File To Search");
 				fm.searchFile(subOption);
-				System.out.println("Search file logic here..");
+				
+			
 			} else if ("2.4".equals(subOption)) {
 				System.out.println("=======================================");
 				System.out.println("||           Main Menu               ||");
 				System.out.println("=======================================");
-				//System.out.println(" Getting back to main menu");
+				
 				break;
 			} else {
 				System.out.println("Invalido Option : Please select again");
